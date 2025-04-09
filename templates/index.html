@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Notes QA</title>
+    <style>
+        body { font-family: Arial; padding: 2rem; background: #f3f3f3; }
+        .container { background: white; padding: 2rem; border-radius: 10px; max-width: 600px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input[type=text], textarea { width: 100%; padding: 1rem; margin-top: 1rem; border: 1px solid #ccc; border-radius: 5px; }
+        button { margin-top: 1rem; padding: 0.8rem 2rem; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .answer { margin-top: 2rem; background: #eef; padding: 1rem; border-radius: 5px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Ask Questions About Your Notes</h2>
+    <form method="POST">
+        <textarea name="question" rows="3" placeholder="Type your question here..." required></textarea>
+        <button type="submit">Ask</button>
+    </form>
+    {% if answer %}
+    <div class="answer">
+        <strong>Answer:</strong>
+        <p>{{ answer }}</p>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
