@@ -32,7 +32,11 @@ def create_vector_store(texts):
     return FAISS.from_documents(texts, embeddings)
 
 def ask_question(query, vstore):
-    llm = ChatGoogleGenerativeAI(model="models/chat-bison-001", google_api_key=google_api_key)
+    llm = ChatGoogleGenerativeAI(
+        model="models/text-bison-001",
+        google_api_key=google_api_key,
+        temperature=0.7
+    )
     chain = load_qa_chain(llm, chain_type="stuff")
     docs = vstore.similarity_search(query)
     return chain.run(input_documents=docs, question=query)
